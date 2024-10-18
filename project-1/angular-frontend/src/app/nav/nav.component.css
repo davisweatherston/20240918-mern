@@ -1,0 +1,42 @@
+nav {
+    background-color: none;
+    border: 15px;
+    border-color: lightgray;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    margin-top: .25em;
+    padding: 5px
+}
+
+nav > a {
+    display: block;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(145, 145, 145);
+    border-width: 1px;
+    padding: .25em .75em .3em .75em;
+    margin-right: 2em;
+    text-align: center;
+    text-decoration: none;
+    /* color: rgb(102, 131, 184); */
+    font-size: 20px;
+}
+
+.nonHighlight:hover {
+    background-color: rgb(145, 145, 145);
+    transition-duration: .3s;
+    color: whitesmoke
+}
+
+.highlight {
+    background-color: rgb(105, 105, 105);
+    /* transition-duration: .3s; */
+    color: whitesmoke;
+    border-color: rgb(105, 105, 105);
+}
+
+.nonHighlight {
+    background-color: rgb(227, 227, 227);
+    color: rgb(102, 131, 184);
+}

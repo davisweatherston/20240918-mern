@@ -1,0 +1,55 @@
+<main>
+    @if(addNewTeam) {
+    <form>
+        <h3>Create New Team</h3>
+
+        <label for="teamName">Team Name</label>
+        <input type="text" name="teamName" id="teamName" [(ngModel)]="teamName">
+        <button type="button" (click)="createNewTeam()">GO</button>
+    </form>
+    }
+    <h1>
+        Teams
+        <button id="newTeamButton" type="button" (click)="addTeam()">Add New Team</button>
+        
+    </h1>
+
+    <!-- <form>
+        <h3>Create New Team</h3>
+
+        <label for="teamName">Team Name</label>
+        <input type="text" name="teamName" id="teamName" [(ngModel)]="teamName">
+        
+    </form> -->
+
+    @for (team of teams; track $index) {
+        <app-team [team]="team"></app-team>
+    }
+
+
+    <!-- <table>
+        <thead>
+            <tr>
+                <th>Team ID</th>
+                <th>Team Name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (team of teams; track $index) {
+            <tr>
+                <td>{{ team.teamId }}</td>
+                <td>{{ team.teamName }}</td>
+                
+                <td><button id="editTeamButton" type="button">Edit</button></td>
+                <td><button id="deleteTeamButton" type="button">x</button></td>
+
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <button id="newTeamButton" type="button">Add New Team</button> -->
+</main>

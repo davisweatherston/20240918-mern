@@ -1,0 +1,173 @@
+<!-- we bind this form to the createForm FormGroup -- [formGroup]="<name of FormGroup in .ts file>" -->
+@if(!isUpdateForm) {
+    <form [formGroup]="createForm">
+        <h2>Create Player</h2>
+    
+       
+        <label for="createFirstName">First Name</label>
+        <input type="text" id="createFirstName" name="createFirstName" formControlName="createFirstName">
+    
+        <label for="createLastName">Last Name</label>
+        <input type="text" id="createLastName" name="createLastName" formControlName="createLastName">
+    
+        <!-- <label for="createTeamId">Team ID</label> -->
+        <!-- <input type="number" id="createTeamId" name="createTeamId" formControlName="createTeamId"> -->
+    
+        <label for="teamId">Select Team:</label>
+        <select formControlName="createTeamId" id="teamId">
+            <option value="0">-- Select a team (optional) --</option>
+
+            <ng-container *ngFor="let team of teams">
+                <option [value]="team.teamId">{{ team.teamName }}</option>
+            </ng-container>
+          
+        </select>
+
+        <label for="createDupr">Dupr</label>
+        <input type="number" id="createDupr" name="createDupr" formControlName="createDupr">
+    
+        <label for="createGender">Gender (M/F)</label>
+        <input type="text" id="createGender" name="createGender" formControlName="createGender">
+    
+        <!-- calling our reset method on click -->
+        <button type="button" (click)="resetCreateForm()">RESET FORM</button>
+   
+        <button type="button" (click)="submitCreateForm()" [disabled]="createForm.invalid">CREATE PLAYER</button>
+    
+        <section>
+         
+            @if (createFirstName?.invalid && (createFirstName?.touched || createFirstName?.dirty)) {
+               
+                @if (createFirstName?.errors?.['required']) {
+                    First Name is required.
+                
+                } @else {
+                    First Name must be 32 characters or fewer.
+                }
+            } @else if (createLastName?.invalid && (createLastName?.touched || createLastName?.dirty)) {
+                @if (createLastName?.errors?.['required']) {
+                    Last Name is required.
+                } @else {
+                    Last Name must be 32 characters or fewer.
+                }
+            } @else if (createTeamId?.invalid && (createTeamId?.touched || createTeamId?.dirty)) {
+                @if (createTeamId?.errors?.['required']) {
+                    Team ID is required.
+                } @else if (createTeamId?.errors?.['max']) {
+                    Team ID must be 100 or less.
+                } @else {
+                    Team ID must be a positive integer
+                }
+            } 
+             @else if (createDupr?.invalid && (createDupr?.touched || createDupr?.dirty)) {
+                @if (createDupr?.errors?.['required']) {
+                    DUPR is required. Use an estimate if player does not have an actual DUPR.
+                <!-- here, we have three Validators, so we need an extra @else if -->
+                } @else if (createDupr?.errors?.['max']) {
+                    DUPR must be 8.0 or less.
+                } @else if (createDupr?.errors?.['min']) {
+                    DUPR must be positive.
+                } @else {
+                    DUPR must be a non-negative number between 0 and 8.0.
+                }
+            } @else if (createGender?.invalid && (createGender?.touched || createGender?.dirty)) {
+                @if (createGender?.errors?.['required']) {
+                    Gender is required.
+                } @else if (createGender?.errors?.['max']) {
+                    Please enter either M for male or F for female.
+                } @else {
+                    Please only enter either M for male or F for female.
+                }
+            }
+        </section>
+    
+    </form>
+}
+
+<!-- we bind this form to the updateForm FormGroup -- [formGroup]="<name of FormGroup in .ts file>" -->
+@if(isUpdateForm) {
+    <form [formGroup]="updateForm">
+        <h2>Edit Player</h2>
+    
+        
+        <label for="updateFirstName">First Name: {{selectedPlayer.firstName}}</label>
+        <input type="text" id="updateFirstName" name="updateFirstName" formControlName="updateFirstName">
+    
+        <label for="updateLastName">Last Name: {{selectedPlayer.lastName}}</label>
+        <input type="text" id="updateLastName" name="updateLastName" formControlName="updateLastName">
+    
+        <!-- <label for="updateTeamId">Team ID</label>
+        <input type="number" id="updateTeamId" name="updateTeamId" formControlName="updateTeamId">
+     -->
+
+        <label for="teamId">Selected Team ID: {{selectedPlayer.teamId}}</label>
+        <select formControlName="updateTeamId" id="teamId">
+            <option value="selectedPlayer.teamId">{{selectedPlayer.teamId}}</option>
+
+            <ng-container *ngFor="let team of teams">
+                <option [value]="team.teamId">{{team.teamId}} {{ team.teamName }}</option>
+            </ng-container>
+         
+        </select>
+
+
+        <label for="updateDupr">Dupr: {{selectedPlayer.dupr}}</label>
+        <input type="number" id="updateDupr" name="updateDupr" formControlName="updateDupr">
+    
+        <label for="updateGender">Gender (M/F): {{selectedPlayer.gender}}</label>
+        <input type="text" id="updateGender" name="updateGender" formControlName="updateGender">
+    
+        <!-- calling our reset method on click -->
+        <button type="button" (click)="resetUpdateForm()">RESET FORM</button>
+    
+        <button type="button" (click)="submitUpdateForm()" [disabled]="updateForm.invalid">UDPATE PLAYER</button>
+    
+        <section>
+            
+            @if (updateFirstName?.invalid && (updateFirstName?.touched || updateFirstName?.dirty)) {
+                
+                @if (updateFirstName?.errors?.['required']) {
+                    First Name is required.
+                
+                } @else {
+                    First Name must be 32 characters or fewer.
+                }
+            } @else if (updateLastName?.invalid && (updateLastName?.touched || updateLastName?.dirty)) {
+                @if (updateLastName?.errors?.['required']) {
+                    Last Name is required.
+                } @else {
+                    Last Name must be 32 characters or fewer.
+                }
+            } @else if (updateTeamId?.invalid && (updateTeamId?.touched || updateTeamId?.dirty)) {
+                @if (updateTeamId?.errors?.['required']) {
+                    Team ID is required.
+                } @else if (updateTeamId?.errors?.['max']) {
+                    Team ID must be 100 or less.
+                } @else {
+                    Team ID must be a positive integer
+                }
+            } 
+                @else if (updateDupr?.invalid && (updateDupr?.touched || updateDupr?.dirty)) {
+                @if (updateDupr?.errors?.['required']) {
+                    DUPR is required. Use an estimate if player does not have an actual DUPR.
+                <!-- here, we have three Validators, so we need an extra @else if -->
+                } @else if (updateDupr?.errors?.['max']) {
+                    DUPR must be 8.0 or less.
+                } @else if (updateDupr?.errors?.['min']) {
+                    DUPR must be positive.
+                } @else {
+                    DUPR must be a non-negative number.
+                }
+            } @else if (updateGender?.invalid && (updateGender?.touched || updateGender?.dirty)) {
+                @if (updateGender?.errors?.['required']) {
+                    Gender is required.
+                } @else if (updateGender?.errors?.['max']) {
+                    Please enter either M for male or F for female.
+                } @else {
+                    Please only enter either M for male or F for female.
+                }
+            }
+        </section>
+    
+    </form>
+}

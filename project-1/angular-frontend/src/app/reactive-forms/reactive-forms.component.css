@@ -1,0 +1,56 @@
+form {
+    width: 300px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-top: 7px;
+    /* float: right; */
+    position: fixed;
+    right: 20px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: .5px;
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.35);
+    background-color: rgba(255, 255, 255, 0.925);
+}
+
+h2 {
+    margin: 5px 150px 10px 10px;
+    font-size: 20px;
+    color: rgb(75, 133, 240);
+}
+
+label, input, select {
+    display: block;
+    margin-left: 10px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+input, select {
+    width: 240px;
+    margin-bottom: 8px;
+}
+
+button {
+    display: inline-block;
+    margin: 10px 8px 8px 10px;
+    border-radius: 6px;
+    border-width: 1px;
+    padding: 3px 7px 2px 7px;
+}
+
+section {
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 13px;
+    height: 20px;
+}
+
+#update {
+    float: right;
+}

@@ -1,0 +1,159 @@
+article {
+    width: 387px;
+    padding: .25em 0em 1em 0em;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: .5px;
+    border-color: rgb(240, 240, 240);
+    display: inline-block;
+    margin: 0px 10px 20px 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.35);
+    vertical-align: top;
+}
+
+section {
+    text-align: left;
+    padding-left: 15px;
+    
+    font-size: 20px;
+    margin-right: 4em;
+}
+
+section, div, #avgDupr {
+    display: inline-block; 
+    vertical-align: top;
+    padding-top: 5px;
+    margin-bottom: 15px;
+}
+
+#teamName {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#avgDupr {
+    float: right;
+    margin-top: 0px;
+    font-size: 18px;
+    text-align: right;
+    padding-right: 10px; /* Ensure alignment with the other elements */
+    padding-left: 15px; 
+}
+
+#avgDupr span {
+    display: block;
+}
+
+table, td, p {
+    margin-left: 15px;
+    padding-right: 25px;
+}
+
+article > button {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 25px;
+    /* margin-right: 57px; */
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(71, 71, 71);
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: rgb(145, 145, 145);
+    transition-duration: .2s;
+    color: whitesmoke
+}
+
+button:focus {
+    background-color: rgb(105, 105, 105);
+    /* transition-duration: .3s; */
+    color: whitesmoke;
+    border-color: rgb(105, 105, 105);
+}
+
+form {
+    position: fixed;
+    left: 300px;
+    margin-bottom: 300px;
+    z-index: 100;
+    vertical-align: top;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: .5px;
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.35);
+    background-color: rgba(255, 255, 255, 0.925);
+}
+
+#tradePlayerForm {
+    width: 200px;
+}
+
+#tradePlayerForm > option {
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+h3 {
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: rgb(75, 133, 240);
+}
+
+label, input {
+    display: block;
+    margin-left: 10px;
+    margin-right: 10px
+}
+
+label {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+option, ng-container {
+    margin: 5px 10px 5px 10px;
+}
+
+input {
+    width: 150px;
+    margin-bottom: 8px; 
+}
+
+input, #editTeamName, #tradePlayer {
+    display: inline-block
+}
+
+#editTeamName, #tradePlayer {
+    margin-right: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(71, 71, 71);
+    border-radius: 5px;
+}
+
+#tradePlayer {
+    margin-left: 30px;
+   
+}
+
+form, button, select, option {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.edit-form {
+    z-index: 1000;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    vertical-align: bottom;
+  }

@@ -1,0 +1,10 @@
+<nav>
+
+    <a routerLink="teams" 
+    [ngClass]="{'highlight' : highlight === 'Teams', 'nonHighlight' : highlight !== 'Teams'}">Teams</a>
+    <a routerLink="players"
+     [ngClass]="{'highlight' : highlight === 'Players', 'nonHighlight' : highlight !== 'Players'}">Players</a>
+    <a routerLink="schedule"
+    [ngClass]="{'highlight' : highlight === 'Schedule', 'nonHighlight' : highlight !== 'Schedule'}">Schedule</a>
+    
+</nav>

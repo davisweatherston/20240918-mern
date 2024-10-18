@@ -1,0 +1,66 @@
+<main>
+    <h1>
+        Players     @if(!editFormDisplay){<button id="newPlayerButton" type="button" (click)="addNewPlayer()">Add New Player</button>}
+
+    </h1>
+
+    @if(formDisplay) {
+    <app-reactive-forms 
+        [isUpdateForm]="false"
+        (createNewPlayerEvent)="createNewPlayer($event)">
+    </app-reactive-forms>
+    }
+
+    @if(editFormDisplay) {
+        <app-reactive-forms
+            [isUpdateForm]="true"
+            [selectedPlayer]="selectedPlayer"
+            (updatePlayerEvent)="updatePlayer($event)">
+        </app-reactive-forms>
+    }
+ 
+    <table>
+        <thead>
+            <tr>
+                <th>Player ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Team ID</th>
+                <th>DUPR</th>
+                <th>Gender</th>
+
+                <!-- This won't display if someone is creating a new player to avoid Form Overlap -->
+                @if(!formDisplay) {
+                    <th>Edit</th>
+                    <th>Delete</th>
+                }
+                
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (player of players; track $index) {
+            <tr>
+                <td>{{ player.playerId }}</td>
+                <td>{{ player.firstName }}</td>
+                <td>{{ player.lastName }}</td>
+                <td>{{ player.teamId }}</td>
+                <td>{{ player.dupr }}</td>
+                <td>{{ player.gender }}</td>
+
+                <!-- This won't display if someone is creating a new player to avoid Form Overlap -->
+                @if(!formDisplay) {
+                    <td><button id="editPlayerButton" type="button" (click)="selectPlayer(player)">Edit</button></td>
+                    <td><button id="deletePlayerButton" type="button" (click)="deletePlayer(player.playerId)">X</button></td>
+                }
+                
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <div>
+        <button id="newPlayerButtonBottom" type="button" (click)="addNewPlayer()">Add New Player</button>
+        <!-- <button id="editPlayerButton" type="button" (click)="editPlayer()">Edit</button> -->
+    </div>
+</main>

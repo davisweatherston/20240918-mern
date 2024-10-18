@@ -1,0 +1,79 @@
+main {
+    margin: 0px 10px 0px 10px;
+}
+
+main > h1 {
+    margin-left: 10px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+}
+
+form {
+    position: fixed;
+    left: 300px;
+    z-index: 100;
+    vertical-align: top;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: .5px;
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.35);
+    background-color: rgba(255, 255, 255, 0.925);
+}
+
+h3 {
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: rgb(75, 133, 240);
+}
+
+label, input {
+    display: block;
+    margin-left: 10px;
+    margin-right: 10px
+}
+
+label {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+input {
+    width: 150px;
+    margin-bottom: 8px; 
+}
+
+input, button {
+    display: inline-block
+}
+
+button {
+    margin-right: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(71, 71, 71);
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: rgb(145, 145, 145);
+    transition-duration: .2s;
+    color: whitesmoke
+}
+
+button:focus {
+    background-color: rgb(105, 105, 105);
+    /* transition-duration: .3s; */
+    color: whitesmoke;
+    border-color: rgb(105, 105, 105);
+}
+
+#newTeamButton {
+    margin-left: 30px;
+    margin-top: 8px;
+    padding: 5px 8px 5px 8px;
+    border-radius: 8px;
+    vertical-align: top;
+}

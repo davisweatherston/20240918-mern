@@ -1,0 +1,95 @@
+@if(changeTeamName) {
+
+
+    <form *ngIf="changeTeamName" [ngStyle]="{'top.px': formY, 'left.px': formX}" class="edit-form">
+        <h3>Edit Team Name</h3>
+        <label for="teamName">Team Name: {{team.teamName}}</label>
+        <input type="text" name="teamName" id="teamName" [(ngModel)]="teamName">
+        <button id="editTeamName" type="button" (click)="editTeamName(team.teamId)">GO</button>
+    </form>
+    }
+
+    @if(tradePlayer) {
+        <form id="tradePlayerForm">
+            <h3>Trade Player</h3>
+
+            <label for="playerTeamIdToUpdate">Reassign to Team:</label>                            
+            <select name="playerTeamIdToUpdate" id="playerTeamIdToUpdate" [(ngModel)]="playerTeamIdToUpdate">
+                <option value="0">{{team.teamName}}</option>
+    
+                <ng-container *ngFor="let name of teams">
+                    <option [value]="name.teamId">{{ name.teamId }}</option>
+                </ng-container>
+            </select> 
+
+            <button id="tradePlayer" type="button" (click)="reassignPlayer(selectedPlayerId)">GO</button>
+
+        </form>
+    }  
+    <article [ngStyle]="{ 'background': getTeamGradient(team.teamId)   }">
+
+        <section>
+            {{ team.teamId }}
+        </section>
+
+        <div id="teamName">
+            {{ team.teamName }}
+        </div>
+
+        <div id="avgDupr">
+            <span>Avg Dupr:</span>
+            <span>{{ averageDupr }}</span>
+        </div>
+
+        <table>
+            <tbody>
+                @for (player of players; track $index) {
+                <tr>
+                    <td>{{ player.firstName }} {{player.lastName}}</td>
+                    <td>{{ player.dupr }}</td>
+
+                    @if(changeRoster){
+                    <td>
+                        <button id="tradePlayer" type="button" (click)="reassignPlayer(player.playerId)">Reassign</button>
+                        
+                        <!-- @if(tradePlayer) {
+                        <form>
+                            <h3>Create New Team</h3>
+
+                            <label for="teamName">Team Name</label>                            
+                            <select >
+                                <option value="0">{{team.teamName}}</option>
+                    
+                                <ng-container *ngFor="let name of teams">
+                                    <option [value]="name.teamId">{{ name.teamName }}</option>
+                                </ng-container>
+                            </select> 
+
+                            <button type="button">GO</button>
+ 
+                        </form>
+                    }    -->
+                    </td>
+
+                    <!-- <td><button id="deletePlayerButton" type="button">X</button></td> -->
+                }
+                </tr>
+                }
+            </tbody>
+        </table>
+
+        <p *ngIf="!players.length">No players found for this team.</p>
+
+    
+        <!-- <button type="button" (click)="showEditForm(team)">Edit Team Name</button> -->
+        <button (click)="showForm($event)">Edit Team Name</button>
+
+        @if(players.length){<button type="button" (click)="editRoster()">Edit Roster</button>}
+        <!-- <button type="button">Add Player</button> -->
+
+        <!-- Only allows teams to be deleted if no players are on that team -->
+        @if(!players.length){<button type="button" (click)="deleteTeam(team.teamId)">Delete Team</button>}
+
+
+    </article>
+
