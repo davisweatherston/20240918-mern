@@ -10,9 +10,6 @@
         <label for="createLastName">Last Name</label>
         <input type="text" id="createLastName" name="createLastName" formControlName="createLastName">
     
-        <!-- <label for="createTeamId">Team ID</label> -->
-        <!-- <input type="number" id="createTeamId" name="createTeamId" formControlName="createTeamId"> -->
-    
         <label for="teamId">Select Team:</label>
         <select formControlName="createTeamId" id="teamId">
             <option value="0">-- Select a team (optional) --</option>
@@ -96,9 +93,6 @@
         <label for="updateLastName">Last Name: {{selectedPlayer.lastName}}</label>
         <input type="text" id="updateLastName" name="updateLastName" formControlName="updateLastName">
     
-        <!-- <label for="updateTeamId">Team ID</label>
-        <input type="number" id="updateTeamId" name="updateTeamId" formControlName="updateTeamId">
-     -->
 
         <label for="teamId">Selected Team ID: {{selectedPlayer.teamId}}</label>
         <select formControlName="updateTeamId" id="teamId">

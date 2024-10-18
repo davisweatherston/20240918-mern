@@ -51,27 +51,8 @@
                     @if(changeRoster){
                     <td>
                         <button id="tradePlayer" type="button" (click)="reassignPlayer(player.playerId)">Reassign</button>
-                        
-                        <!-- @if(tradePlayer) {
-                        <form>
-                            <h3>Create New Team</h3>
-
-                            <label for="teamName">Team Name</label>                            
-                            <select >
-                                <option value="0">{{team.teamName}}</option>
-                    
-                                <ng-container *ngFor="let name of teams">
-                                    <option [value]="name.teamId">{{ name.teamName }}</option>
-                                </ng-container>
-                            </select> 
-
-                            <button type="button">GO</button>
- 
-                        </form>
-                    }    -->
                     </td>
 
-                    <!-- <td><button id="deletePlayerButton" type="button">X</button></td> -->
                 }
                 </tr>
                 }
@@ -81,7 +62,6 @@
         <p *ngIf="!players.length">No players found for this team.</p>
 
     
-        <!-- <button type="button" (click)="showEditForm(team)">Edit Team Name</button> -->
         <button (click)="showForm($event)">Edit Team Name</button>
 
         @if(players.length){<button type="button" (click)="editRoster()">Edit Roster</button>}

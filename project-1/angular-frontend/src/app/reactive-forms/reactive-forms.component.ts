@@ -54,33 +54,8 @@ export class ReactiveFormsComponent {
 
   ngOnInit(): void {
     this.getAllTeams();
-    // this.loadSelectedPlayer();
   }
 
-  // ngOnChanges(changes: SimpleChanges): void {
-  //   if (changes['selectedPlayerId'] && changes['selectedPlayerId'].currentValue !== changes['selectedPlayerId'].previousValue) {
-  //     this.loadSelectedPlayer();
-  //   }
-  // }
-
-  // loadSelectedPlayer() {
-  //   if (this.selectedPlayerId) {
-  //     this.httpService.getPlayerById(this.selectedPlayerId).subscribe(data => {
-  //       if (data.body) {
-  //         this.selectedPlayer = data.body[0];
-
-  //         // Patch form values with the selected player's data
-  //         this.updateForm.patchValue({
-  //           updateFirstName: this.selectedPlayer.firstName,
-  //           updateLastName: this.selectedPlayer.lastName,
-  //           updateTeamId: this.selectedPlayer.teamId,
-  //           updateDupr: this.selectedPlayer.dupr,
-  //           updateGender: this.selectedPlayer.gender
-  //         });
-  //       }
-  //     });
-  //   }
-  // }
 
   getAllTeams() {
     this.httpService.getAllTeams().subscribe(data => {
@@ -125,8 +100,7 @@ export class ReactiveFormsComponent {
                                               this.createTeamId?.value,
                                               this.createDupr?.value,
                                               this.createGender?.value));
-    // after emitting the event, we clear the form
-    // this.resetCreateForm();
+
   }
 
 
@@ -161,7 +135,6 @@ export class ReactiveFormsComponent {
                                           this.updateTeamId?.value,
                                           this.updateDupr?.value,
                                           this.updateGender?.value));
-    // after emitting the event, we clear the form
     this.resetUpdateForm();
   }
 

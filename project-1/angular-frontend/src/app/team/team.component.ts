@@ -43,13 +43,6 @@ constructor(private httpService: HttpService) {
   
 }
 
-// ngOnChanges(): void {
-//   if (this.team && this.team.teamId) {
-//     this.getPlayersByTeamId(this.team.teamId);
-//     this.getAverageDupr(this.team.teamId);
-//   }
-// }
-
 ngOnChanges(changes: SimpleChanges): void {
   // Check if the team input has changed and the teamId is available
   if (changes['team'] && this.team && this.team.teamId) {

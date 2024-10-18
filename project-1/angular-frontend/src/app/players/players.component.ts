@@ -2,8 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Player } from '../models/Player';
 import { HttpService } from '../services/http.service';
-// import { HttpErrorResponse } from '@angular/common/http';
-// import { addNewPlayer } from '../../../../api/typeorm-connection/src/index';
 import { ReactiveFormsComponent } from '../reactive-forms/reactive-forms.component';
 
 @Component({
@@ -45,15 +43,15 @@ export class PlayersComponent {
     })
   }
 
+  //get the player info from that one we select on the frontend to use in the forms
   selectedPlayerId: number = 0;
   selectedPlayer: Player = new Player(0, '', '', 0, 0, '');
 
   selectPlayer(player: Player) {
-    //console.log(playerId)
+ 
     this.selectedPlayerId = player.playerId; 
     this.selectedPlayer = player;
-    // this.getPlayerById();
-    //console.log(this.selectedPlayerId) // Set the selected player's ID
+
     this.editFormDisplay = true;
   }
 
@@ -67,21 +65,9 @@ export class PlayersComponent {
     });
   }
 
-  // getPlayerById() {
-  //   this.httpService.getPlayerById(this.selectedPlayerId).subscribe(data => {
-  //     this.selectedPlayer = data.body?[0] || new Player(0, '', '', 0, 0, '')
-  //   })
-  // }
-
-  // updatePlayer(playerId: number, updatedPlayer: Player) {
-  
-  //   this.httpService.updatePlayer(playerId, updatedPlayer).subscribe(data => {
-  //     console.log(data.body);
-  //     this.getAllPlayers();
-  //   })
-  // }
 
   deletePlayer(id: number) {
+    //simple window confirmation pop-up to confirm player deletion
     const confirmation = window.confirm(`Do you want to delete player with ID ${id}?`);
 
     if(confirmation) {
@@ -96,6 +82,7 @@ export class PlayersComponent {
     
   }
 
+  //control when the either reactive form is displayed to the user
   formDisplay: boolean = false;
   editFormDisplay: boolean = false;
 
