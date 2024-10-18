@@ -1,2 +1,2 @@
 # 20240918-mern
-In-class notes and examples.
+Public Repository for Project 1
